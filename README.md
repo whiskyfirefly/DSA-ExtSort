@@ -16,7 +16,7 @@
 ### Cách A: Chạy trực tiếp bằng Python
 
 ```bash
-# tại thư mục demo_01
+# tại thư mục ExtSort
 python -m venv .venv
 # Windows
 .venv\Scripts\activate
@@ -32,7 +32,7 @@ Mở trình duyệt tại: `http://127.0.0.1:5000`
 ### Cách B: Chạy bằng Docker
 
 ```bash
-# tại thư mục demo_01
+# tại thư mục ExtSort
 docker build -t exsort .
 docker run -p 5000:5000 exsort
 ```
