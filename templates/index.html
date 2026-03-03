@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>External Merge Sort Visualization</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="app-shell">
+    <div class="container">
+        <header class="app-header">
+            <div>
+                <p class="app-kicker">Visualization Lab</p>
+                <h1>External Merge Sort</h1>
+            </div>
+            <p class="app-subtitle">Interactive demo for chunking, k-way merge, and heap behavior.</p>
+        </header>
+
+        <section class="control-grid">
+            <aside class="stack">
+                <div class="card">
+                    <h3>Upload TXT File</h3>
+                    <input type="file" id="fileInput" accept=".txt,text/plain">
+                    <button id="uploadBtn" onclick="uploadFile()">Upload</button>
+                </div>
+
+                <div class="card">
+                    <h3>Generate Random Data</h3>
+                    <input type="number" id="randomCount" value="12" min="1">
+                    <button id="generateBtn" onclick="generateRandom()">Generate</button>
+                </div>
+            </aside>
+
+            <div class="card config">
+                <div class="config-item">
+                    <label>Chunk Size</label>
+                    <input type="number" id="chunkSize" value="4" min="1">
+                </div>
+
+                <div class="config-item">
+                    <label>K-way Merge</label>
+                    <input type="number" id="kWay" value="2" min="2">
+                </div>
+
+                <div class="config-item speed-item">
+                    <label>Speed</label>
+                    <input type="range" id="speedControl" min="100" max="1500" value="600">
+                    <span id="speedValue">600 ms</span>
+                </div>
+
+                <div class="config-buttons">
+                    <button id="startBtn" onclick="startExternalSort()">Start Sort</button>
+                    <button id="pauseBtn" onclick="togglePauseSort()" disabled>Pause</button>
+                    <button id="downloadBtn" onclick="downloadSorted()">Download Sorted TXT</button>
+                </div>
+            </div>
+
+            <div class="panel heap-top-panel">
+                <h3>Min Heap (Binary Tree)</h3>
+                <div id="heapTree"></div>
+            </div>
+        </section>
+
+        <div id="statusMessage" class="status-message"></div>
+
+        <section class="content-stack">
+            <div class="panel">
+                <h3>Input</h3>
+                <div id="inputArea"></div>
+            </div>
+
+            <div class="panel">
+                <div class="timeline-head">
+                    <h3>Chunking Timeline</h3>
+                    <label class="timeline-toggle">
+                        <input type="checkbox" id="timelineModeToggle" checked>
+                        <span>Show all timeline steps</span>
+                    </label>
+                </div>
+                <div id="chunkHistoryArea"></div>
+            </div>
+
+            <div class="merge-row">
+                <div class="panel">
+                    <h3>RAM</h3>
+                    <div id="ramArea"></div>
+                </div>
+
+                <div class="panel">
+                    <h3>K-way Merge</h3>
+                    <div id="diskArea"></div>
+                </div>
+            </div>
+
+            <div class="panel output-panel">
+                <h3>Output</h3>
+                <div id="outputArea"></div>
+                <button id="showMoreBtn" onclick="showAllOutput()" style="display:none;">Show More</button>
+            </div>
+        </section>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+</body>
+</html>
