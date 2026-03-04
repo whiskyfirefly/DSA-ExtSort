@@ -13,13 +13,15 @@
 
 ## 2) Cài đặt và chạy
 
-### Cách A: Chạy trực tiếp bằng Python
+### Cách A: Chạy trực tiếp bằng Python (highly recommended)
 
 ```bash
-# tại thư mục demo_01
+# tại thư mục ExtSort
 python -m venv .venv
+
 # Windows
 .venv\Scripts\activate
+
 # macOS/Linux
 source .venv/bin/activate
 
@@ -32,7 +34,7 @@ Mở trình duyệt tại: `http://127.0.0.1:5000`
 ### Cách B: Chạy bằng Docker
 
 ```bash
-# tại thư mục demo_01
+# tại thư mục ExtSort
 docker build -t exsort .
 docker run -p 5000:5000 exsort
 ```
@@ -98,3 +100,4 @@ Khi dữ liệu đạt ngưỡng này, app sẽ:
 
 - Nếu chỉnh `Chunk Size` hoặc `K-way Merge` trong lúc đang chạy, phiên sort hiện tại sẽ bị hủy để tránh conflict.
 - Nếu giao diện không cập nhật style mới, hãy hard refresh trình duyệt (`Ctrl + F5`).
+- Code được tạo hoàn toàn bởi chatGPT, chỉ mang mục đích minh họa quá trình chạy của External Merge Sort để đáp ứng nhu cầu học tập.
