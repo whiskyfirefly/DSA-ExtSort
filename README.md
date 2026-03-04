@@ -25,7 +25,7 @@ python -m venv .venv
 # macOS/Linux
 source .venv/bin/activate
 
-pip install flask numpy
+pip install -r requirements.txt
 python app.py
 ```
 
